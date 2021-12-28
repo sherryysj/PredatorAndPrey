@@ -16,9 +16,12 @@ The first technique we use is decision tree and we use Weka as the training tool
               2. Training data in Weka by J48 classifier to get the decision tree
               3. Import the decision tree into game script
               4. Running game to collect more data and repeat this workflow
-              
+            
+            
 **Attributes**
+
 We use six attributes with two decisions as following to train the tree.
+
 Attributes Name	Description	Note
 * *hasEnemy:* * Whether there is enemy in this game level;	Export “Yes” or “No” in data file
 * *playerToExitDistance:* *	The Manhattan distance between player and exit; 	Title “ExitDistance” in data file
@@ -29,13 +32,16 @@ Attributes Name	Description	Note
 * *Action:* *	Players decisions based on above attributes, one is to go to exit, one is go to food which will lead player to closest food or soda;	Export “GetExit” or “GetFood” in data file
 
 **Weka**
+
 We use various tree classifier in Weka and found J48 with cross-validation 10 folder has the highest accuracy (around 80%) with the less branches. We also try to adjust the parameters such as the min number object in each branch to prune to tree and find 30 is a good num for the min number object to keep the tree tidy and still with high accuracy.
  
 
 **Path Finding**
+
 We also write a breath first search Player.cs BfsPathFinding(Vector3 target) to do path finding after get the decision from Player.cs actionConsider().  The path finding method will find the closest way from player position to the target, namely closest food or soda, or exit according to decision. The method will be called after in each move of the player, so it will always have the updated game state to generate the path which helps to avoid the ghost. Furthermore, the wall will be treated as obstacles and be avoided by the path finding.
 
 **Challenge**
+
 We do not find a way to connect Weka and unity directly, so we cannot call Weka to keep training game data during the game, but we save and export data every time and retraining the tree manually and rewrite the tree according to training result in game script Player.cs actionConsider(), which will be called before player move.
 The Weka training sometimes ignore hasSupply feature, which is very important since when there is no supply, player should go to the exit definitely. To solve this problem, we add hasSupply in Player.cs actionConsider() as a condition manually if the tree training miss it.
 Furthermore, there is a tiny bug on path finding code, but it does not happen every time, so if it happens, restarting the game is a good move.
