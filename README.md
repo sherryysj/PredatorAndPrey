@@ -23,13 +23,13 @@ The first technique we use is decision tree and we use Weka as the training tool
 We use six attributes with two decisions as following to train the tree.
 
 Attributes Name	Description	Note
-* *hasEnemy:* * Whether there is enemy in this game level;	Export “Yes” or “No” in data file
-* *playerToExitDistance:* *	The Manhattan distance between player and exit; 	Title “ExitDistance” in data file
-* *hasSupply:* *	Whether there is food or soda in this game level;	Export “Yes” or “No” in data file
-* *closestEnemyDistance:* *	The Manhattan distance between player and the closest enemy;	Title “ClosestEnemy” in data file
-* *closestEnemyToFoodDistance:* *	The Manhattan distance between closest food or soda and the closest enemy to that food or soda; Title “ClosestEnemyToSupply” in data file
-* *utility:* *	The food points player gets after player get all foods and sodas minus food points cost on the way and go to exit;	Example: there is one soda and one food in the map, player could get 30 points from them. But player go to soda cost 5 foods, and then go to soda cost 10 foods, and then go to exit cost 3 foods, then the utility is 30-5-10-3 = 12
-* *Action:* *	Players decisions based on above attributes, one is to go to exit, one is go to food which will lead player to closest food or soda;	Export “GetExit” or “GetFood” in data file
+* *hasEnemy:*  Whether there is enemy in this game level;	Export “Yes” or “No” in data file
+* *playerToExitDistance:*  The Manhattan distance between player and exit; 	Title “ExitDistance” in data file
+* *hasSupply:* 	Whether there is food or soda in this game level;	Export “Yes” or “No” in data file
+* *closestEnemyDistance:* 	The Manhattan distance between player and the closest enemy;	Title “ClosestEnemy” in data file
+* *closestEnemyToFoodDistance:* 	The Manhattan distance between closest food or soda and the closest enemy to that food or soda; Title “ClosestEnemyToSupply” in data file
+* *utility:* 	The food points player gets after player get all foods and sodas minus food points cost on the way and go to exit;	Example: there is one soda and one food in the map, player could get 30 points from them. But player go to soda cost 5 foods, and then go to soda cost 10 foods, and then go to exit cost 3 foods, then the utility is 30-5-10-3 = 12
+* *Action:* 	Players decisions based on above attributes, one is to go to exit, one is go to food which will lead player to closest food or soda;	Export “GetExit” or “GetFood” in data file
 
 **Weka**
 
