@@ -1,0 +1,96 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     data
+Instances:    311
+Attributes:   7
+              ExitDistance
+              HasSupply
+              HasEnemy
+              ClosestEnemy
+              ClosestEnemyToSupply
+              Utility
+              Action
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+HasSupply = Yes
+|   HasEnemy = No: GetFood (20.0)
+|   HasEnemy = Yes
+|   |   ClosestEnemyToSupply <= 1.396777
+|   |   |   Utility <= 19
+|   |   |   |   Utility <= 8: GetFood (15.0)
+|   |   |   |   Utility > 8
+|   |   |   |   |   Utility <= 17
+|   |   |   |   |   |   ClosestEnemyToSupply <= 0.85765: GetExit (5.0)
+|   |   |   |   |   |   ClosestEnemyToSupply > 0.85765
+|   |   |   |   |   |   |   ExitDistance <= 4: GetExit (8.0/1.0)
+|   |   |   |   |   |   |   ExitDistance > 4: GetFood (3.0)
+|   |   |   |   |   Utility > 17: GetFood (16.0/1.0)
+|   |   |   Utility > 19
+|   |   |   |   Utility <= 45
+|   |   |   |   |   ClosestEnemyToSupply <= 0.55896: GetExit (71.0/2.0)
+|   |   |   |   |   ClosestEnemyToSupply > 0.55896
+|   |   |   |   |   |   Utility <= 32
+|   |   |   |   |   |   |   Utility <= 26
+|   |   |   |   |   |   |   |   Utility <= 21: GetFood (3.0)
+|   |   |   |   |   |   |   |   Utility > 21
+|   |   |   |   |   |   |   |   |   Utility <= 24: GetExit (17.0)
+|   |   |   |   |   |   |   |   |   Utility > 24
+|   |   |   |   |   |   |   |   |   |   ExitDistance <= 5: GetExit (5.0)
+|   |   |   |   |   |   |   |   |   |   ExitDistance > 5: GetFood (2.0)
+|   |   |   |   |   |   |   Utility > 26: GetFood (9.0/1.0)
+|   |   |   |   |   |   Utility > 32: GetExit (21.0)
+|   |   |   |   Utility > 45
+|   |   |   |   |   ExitDistance <= 0: GetFood (13.0)
+|   |   |   |   |   ExitDistance > 0
+|   |   |   |   |   |   ClosestEnemyToSupply <= 0.85765: GetExit (18.0/2.0)
+|   |   |   |   |   |   ClosestEnemyToSupply > 0.85765
+|   |   |   |   |   |   |   ExitDistance <= 3: GetExit (2.0)
+|   |   |   |   |   |   |   ExitDistance > 3: GetFood (6.0)
+|   |   ClosestEnemyToSupply > 1.396777
+|   |   |   Utility <= 12: GetExit (3.0)
+|   |   |   Utility > 12
+|   |   |   |   ClosestEnemy <= 3.760365: GetFood (33.0/2.0)
+|   |   |   |   ClosestEnemy > 3.760365
+|   |   |   |   |   ClosestEnemyToSupply <= 2.428046: GetExit (3.0)
+|   |   |   |   |   ClosestEnemyToSupply > 2.428046: GetFood (4.0)
+HasSupply = No: GetExit (28.0)
+
+Number of Leaves  : 	22
+
+Size of the tree : 	43
+
+
+Time taken to build model: 0.03 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         275               90.1639 %
+Incorrectly Classified Instances        30                9.8361 %
+Kappa statistic                          0.7957
+Mean absolute error                      0.1219
+Root mean squared error                  0.3036
+Relative absolute error                 25.1831 %
+Root relative squared error             61.7285 %
+Total Number of Instances              305     
+Ignored Class Unknown Instances                  6     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.864    0.072    0.893      0.864    0.878      0.796    0.909     0.872     GetFood
+                 0.928    0.136    0.908      0.928    0.918      0.796    0.893     0.880     GetExit
+Weighted Avg.    0.902    0.110    0.901      0.902    0.901      0.796    0.899     0.876     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 108  17 |   a = GetFood
+  13 167 |   b = GetExit
+

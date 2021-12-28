@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 20
+Relation:     csvData
+Instances:    1010
+Attributes:   7
+              ExitDistance
+              HasSupply
+              HasEnemy
+              ClosestEnemy
+              ClosestEnemyToSupply
+              Utility
+              Action
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+Utility <= 2: GetExit (164.0/1.0)
+Utility > 2
+|   HasEnemy = No: GetFood (44.0)
+|   HasEnemy = Yes
+|   |   ClosestEnemyToSupply <= 0.6227
+|   |   |   Utility <= 41
+|   |   |   |   Utility <= 18
+|   |   |   |   |   Utility <= 12: GetExit (52.0/12.0)
+|   |   |   |   |   Utility > 12: GetFood (58.0/15.0)
+|   |   |   |   Utility > 18: GetExit (181.0/36.0)
+|   |   |   Utility > 41
+|   |   |   |   ExitDistance <= 1: GetFood (23.0/1.0)
+|   |   |   |   ExitDistance > 1
+|   |   |   |   |   Utility <= 49: GetFood (20.0/8.0)
+|   |   |   |   |   Utility > 49: GetExit (20.0/6.0)
+|   |   ClosestEnemyToSupply > 0.6227
+|   |   |   ExitDistance <= 1
+|   |   |   |   Utility <= 9: GetExit (22.0/1.0)
+|   |   |   |   Utility > 9
+|   |   |   |   |   Utility <= 19: GetFood (41.0/12.0)
+|   |   |   |   |   Utility > 19
+|   |   |   |   |   |   Utility <= 28: GetExit (33.0/5.0)
+|   |   |   |   |   |   Utility > 28
+|   |   |   |   |   |   |   Utility <= 42: GetFood (21.0/7.0)
+|   |   |   |   |   |   |   Utility > 42: GetExit (21.0/6.0)
+|   |   |   ExitDistance > 1
+|   |   |   |   ClosestEnemyToSupply <= 2
+|   |   |   |   |   Utility <= 26
+|   |   |   |   |   |   Utility <= 20: GetFood (81.0/20.0)
+|   |   |   |   |   |   Utility > 20: GetExit (42.0/14.0)
+|   |   |   |   |   Utility > 26: GetFood (146.0/28.0)
+|   |   |   |   ClosestEnemyToSupply > 2: GetFood (41.0)
+
+Number of Leaves  : 	17
+
+Size of the tree : 	33
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         800               79.2079 %
+Incorrectly Classified Instances       210               20.7921 %
+Kappa statistic                          0.5822
+Mean absolute error                      0.2894
+Root mean squared error                  0.3878
+Relative absolute error                 58.2487 %
+Root relative squared error             77.8096 %
+Total Number of Instances             1010     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.785    0.202    0.768      0.785    0.777      0.582    0.849     0.816     GetFood
+                 0.798    0.215    0.813      0.798    0.806      0.582    0.849     0.871     GetExit
+Weighted Avg.    0.792    0.209    0.793      0.792    0.792      0.582    0.849     0.846     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 365 100 |   a = GetFood
+ 110 435 |   b = GetExit
+

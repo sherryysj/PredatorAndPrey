@@ -1,0 +1,86 @@
+=== Run information ===
+
+Scheme       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation     csvData
+Instances    697
+Attributes   7
+              ExitDistance
+              HasSupply
+              HasEnemy
+              ClosestEnemy
+              ClosestEnemyToSupply
+              Utility
+              Action
+Test mode    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+HasSupply = Yes
+   ClosestEnemyToSupply = 1.420093
+      Utility = 19
+         Utility = 6
+            Utility = 3 GetExit (14.01.0)
+            Utility  3
+               ClosestEnemy = 2.428046 GetExit (15.04.0)
+               ClosestEnemy  2.428046 GetFood (3.0)
+         Utility  6
+            ClosestEnemy = 1.643083 GetFood (70.014.0)
+            ClosestEnemy  1.643083 GetExit (11.04.0)
+      Utility  19
+         Utility = 25 GetExit (86.06.0)
+         Utility  25
+            Utility = 67
+               Utility = 32
+                  ClosestEnemyToSupply = 0.258883
+                     ExitDistance = 6
+                        Utility = 29
+                           Utility = 27 GetExit (5.01.0)
+                           Utility  27 GetFood (7.0)
+                        Utility  29 GetExit (17.01.0)
+                     ExitDistance  6 GetExit (7.0)
+                  ClosestEnemyToSupply  0.258883 GetFood (23.03.0)
+               Utility  32
+                  ExitDistance = 0 GetFood (15.03.0)
+                  ExitDistance  0
+                     ExitDistance = 4 GetExit (45.010.0)
+                     ExitDistance  4 GetFood (46.013.0)
+            Utility  67 GetFood (11.0)
+   ClosestEnemyToSupply  1.420093 GetFood (103.08.0)
+HasSupply = No GetExit (82.0)
+
+Number of Leaves   	17
+
+Size of the tree  	33
+
+
+Time taken to build model 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         463               82.6786 %
+Incorrectly Classified Instances        97               17.3214 %
+Kappa statistic                          0.6536
+Mean absolute error                      0.2183
+Root mean squared error                  0.375 
+Relative absolute error                 43.7931 %
+Root relative squared error             75.1161 %
+Total Number of Instances              560     
+Ignored Class Unknown Instances                137     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.848    0.193    0.797      0.848    0.822      0.655    0.720     0.509     GetFood
+                 0.807    0.152    0.857      0.807    0.831      0.655    0.891     0.850     GetExit
+Weighted Avg.    0.827    0.171    0.829      0.827    0.827      0.655    0.810     0.689     
+
+=== Confusion Matrix ===
+
+   a   b   -- classified as
+ 224  40    a = GetFood
+  57 239    b = GetExit
+

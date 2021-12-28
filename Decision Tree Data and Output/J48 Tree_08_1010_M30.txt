@@ -1,0 +1,73 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 30
+Relation:     csvData
+Instances:    1010
+Attributes:   7
+              ExitDistance
+              HasSupply
+              HasEnemy
+              ClosestEnemy
+              ClosestEnemyToSupply
+              Utility
+              Action
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+Utility <= 2: GetExit (164.0/1.0)
+Utility > 2
+|   HasEnemy = No: GetFood (44.0)
+|   HasEnemy = Yes
+|   |   ClosestEnemyToSupply <= 0.6227
+|   |   |   Utility <= 41
+|   |   |   |   Utility <= 18
+|   |   |   |   |   Utility <= 12: GetExit (52.0/12.0)
+|   |   |   |   |   Utility > 12: GetFood (58.0/15.0)
+|   |   |   |   Utility > 18: GetExit (181.0/36.0)
+|   |   |   Utility > 41: GetFood (63.0/23.0)
+|   |   ClosestEnemyToSupply > 0.6227
+|   |   |   ExitDistance <= 1: GetExit (138.0/55.0)
+|   |   |   ExitDistance > 1
+|   |   |   |   ClosestEnemyToSupply <= 2
+|   |   |   |   |   Utility <= 26
+|   |   |   |   |   |   Utility <= 20: GetFood (81.0/20.0)
+|   |   |   |   |   |   Utility > 20: GetExit (42.0/14.0)
+|   |   |   |   |   Utility > 26: GetFood (146.0/28.0)
+|   |   |   |   ClosestEnemyToSupply > 2: GetFood (41.0)
+
+Number of Leaves  : 	11
+
+Size of the tree : 	21
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         785               77.7228 %
+Incorrectly Classified Instances       225               22.2772 %
+Kappa statistic                          0.5519
+Mean absolute error                      0.3032
+Root mean squared error                  0.3977
+Relative absolute error                 61.0131 %
+Root relative squared error             79.7883 %
+Total Number of Instances             1010     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.761    0.209    0.756      0.761    0.759      0.552    0.841     0.816     GetFood
+                 0.791    0.239    0.795      0.791    0.793      0.552    0.841     0.860     GetExit
+Weighted Avg.    0.777    0.225    0.777      0.777    0.777      0.552    0.841     0.840     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 354 111 |   a = GetFood
+ 114 431 |   b = GetExit
+
