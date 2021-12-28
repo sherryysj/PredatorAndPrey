@@ -1,5 +1,5 @@
 # Overview
-This project is one of the assignments for my Master course - Game and Artificial Intelligence. It was a team work, and I was fully resposible for the Decision Tree part. Please refer following partial Assignment Report for reference.
+This project is one of the assignments for my Master course - Game and Artificial Intelligence, and this repo only includes Decision Tree part. This assignment was a team work, and I was fully resposible for the Decision Tree part. Please refer following partial Assignment Report for reference.
 
 # Assignment Report for Learning Objective(s)
 We used the assignment 2 template on this assignment and modify the code to fit our techniques when necessary. We use Decision Tree, PPO in ML-Agents and Monte Carlo Tree Search techniques on our game. We made some changes to the template game for MCTS and RL agents, where we disabled the movement of the enemy character to reduce the difficulty of the game. For the MCTS agent, there is also a method call made to the DIstanceCalculator class. This method call is done at the start of each level from the GameManager class.
